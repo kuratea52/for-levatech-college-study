@@ -1,0 +1,14 @@
+body {
+    background-color: #23CD9F; /* 背景色を画像と同じ色に設定 */
+    color: #DEFEE5; /* テキストの色を画像と同じ色に設定 */
+    text-align: center; /* テキストを中央揃えに設定 */
+}
+
+img {
+    width: 20%; /* 画像の幅を元の20%に変更 */
+    height: auto; /* アスペクト比を保持するため、高さは自動調整 */
+}
+
+p {
+    font-size: 14px; /* 段落の文字サイズを14pxに設定 */
+}
