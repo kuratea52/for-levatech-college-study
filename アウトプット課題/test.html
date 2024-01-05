@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementById Example</title>
+</head>
+<body>
+
+<!-- HTML内の要素 -->
+<p id="myParagraph">This is a paragraph.</p>
+
+<script>
+// JavaScriptでの使用例
+// idが "myParagraph" の要素を取得
+const paragraphElement = document.getElementById("myParagraph");
+
+// 取得した要素に対して操作を行う
+if (paragraphElement) {
+    paragraphElement.style.color = "red"; // テキストの色を赤に変更
+    paragraphElement.innerHTML = "Updated paragraph content."; // テキスト内容を変更
+}
+</script>
+
+</body>
+</html>
