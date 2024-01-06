@@ -14,14 +14,14 @@ body {
 
 .slot {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* スロット内の要素を横並びに */
     align-items: center;
     margin-bottom: 20px;
 }
 
 .number {
     font-size: 24px;
-    margin-bottom: 10px;
+    margin-right: 10px; /* 数字の間隔を設定 */
 }
 
 .start-btn,
@@ -29,4 +29,5 @@ body {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
+    margin-right: 10px; /* ボタンの間隔を設定 */
 }
