@@ -14,7 +14,7 @@ body {
 
 .slot {
     display: flex;
-    flex-direction: row; /* スロット内の要素を横並びに */
+    flex-direction: row; /* 修正: スロット内の要素を横並びに */
     align-items: center;
     margin-bottom: 20px;
 }
