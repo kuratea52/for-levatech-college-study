@@ -1,28 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Practice01_4.css">
-    <title>Slot Machine</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Practice01_4.css">
+  <title>スロットゲーム</title>
 </head>
 <body>
 
-<div class="slot-machine">
-    <div class="slot">
-        <div class="number" id="number1">0</div>
-        <button class="stop-btn" onclick="stopSlot(1)">Stop</button>
-    </div>
-    <div class="slot">
-        <div class="number" id="number2">0</div>
-        <button class="stop-btn" onclick="stopSlot(2)">Stop</button>
-    </div>
-    <div class="slot">
-        <div class="number" id="number3">0</div>
-        <button class="stop-btn" onclick="stopSlot(3)">Stop</button>
-    </div>
-    <button class="start-btn" onclick="startSlot()">Start</button>
-</div>
+    <div style="display:flex;width:300px;flex-wrap:wrap;">
+        <div id="c1" class="w33">0</div>
+        <div id="c2" class="w33">0</div>
+        <div id="c3" class="w33">0</div>
+        <div class="w33"><button onclick="stop(0)">stop</button></div>
+        <div class="w33"><button onclick="stop(1)">stop</button></div>
+        <div class="w33"><button onclick="stop(2)">stop</button></div>
+        <div class="w100"><button onclick="start()">start</button></div>
+      </div>
+      <div id="char"></div>
 
 <script src="Practice01_4.js"></script>
 </body>

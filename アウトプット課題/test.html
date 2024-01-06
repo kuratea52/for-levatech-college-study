@@ -1,21 +1,100 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <!--モバイルで表示させる用-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--css読み込み-->
-    <link rel="stylesheet" href="Practice01_2.css">
-    <title>Hello World!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .w33 { width: 33%; text-align: center; }
+    .w100 { width: 100%; text-align: center; }
+  </style>
+  <title>スロットゲーム</title>
 </head>
 <body>
-    <img src="..\Practice01_2.png">
-    <p>This is my first HTML.</p>
 
-    <button id="btn">CLICK</button>
-    <p id="txt"></p>
+<script>
+  // スロットの状態を管理するオブジェクト
+  const slots = Array(3).fill({ value: 0, spinning: false });
 
-    <!--js読み込み-->
-    <script src="Practice01_2.js"></script>
+  // HTMLの読み込みが完了したら実行
+  document.addEventListener("DOMContentLoaded", function () {
+    // 各スロットに対応するHTML要素を取得
+    slots.forEach((slot, index) => {
+      slot.element = document.getElementById(`c${index + 1}`);
+    });
+
+    // 20ミリ秒ごとにスロットの状態を更新する関数を実行
+    setInterval(updateSlots, 20);
+  });
+
+  // スロットの状態を更新する関数
+  function updateSlots() {
+    slots.forEach((slot) => {
+      if (slot.spinning) {
+        // スロットが回転中の場合、値を1増やして10で割った余りを取得
+        slot.value = (slot.value + 1) % 10;
+        // HTMLに反映
+        slot.element.innerHTML = slot.value;
+      }
+    });
+
+    // 全てのスロットが停止している場合、ゲームを判定
+    if (!slots.some((slot) => slot.spinning)) {
+      stopGame();
+    }
+  }
+
+  // ゲームを開始する関数
+  function start() {
+    // すでにスロットが回転中の場合は何もしない
+    if (slots.some((slot) => slot.spinning)) return;
+
+    // 全てのスロットを回転状態に設定
+    slots.forEach((slot) => {
+      slot.spinning = true;
+    });
+  }
+
+  // 特定のスロットを停止する関数
+  function stop(index) {
+    // スロットが回転中の場合のみ停止処理を実行
+    if (slots[index].spinning) {
+      // スロットを停止状態に設定
+      slots[index].spinning = false;
+
+      // 全てのスロットが停止している場合、ゲームを判定
+      if (!slots.some((slot) => slot.spinning)) {
+        stopGame();
+      }
+    }
+  }
+
+  // ゲームの結果を判定する関数
+  function stopGame() {
+    // 結果を表示するHTML要素を取得
+    const resultElement = document.getElementById("char");
+
+    // 全てのスロットの値が一致している場合、「あたり」を表示。そうでなければ「はずれ」を表示
+    if (slots.every((slot) => slot.value === slots[0].value)) {
+      resultElement.innerHTML = "あたり";
+    } else {
+      resultElement.innerHTML = "はずれ";
+    }
+  }
+</script>
+
+<!-- スロットとボタンを表示する部分 -->
+<div style="display: flex; width: 300px; flex-wrap: wrap;">
+  <div id="c1" class="w33">0</div>
+  <div id="c2" class="w33">0</div>
+  <div id="c3" class="w33">0</div>
+  <div class="w33"><button onclick="stop(0)">stop</button></div>
+  <div class="w33"><button onclick="stop(1)">stop</button></div>
+  <div class="w33"><button onclick="stop(2)">stop</button></div>
+  <div class="w100"><button onclick="start()">start</button></div>
+</div>
+
+<!-- ゲームの結果を表示する部分 -->
+<div id="char"></div>
+
 </body>
 </html>

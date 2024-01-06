@@ -1,54 +1,71 @@
-// 初期化
-let isSpinning = false;
-let numbers = [0, 0, 0];
+// スロットの状態を管理するオブジェクトの配列
+var carr = [{ f: false, v: 0, obj: null }, { f: false, v: 0, obj: null }, { f: false, v: 0, obj: null }];
 
-// 開始ボタンが押されたときの処理
-function startSlot() {
-    if (!isSpinning) {
-        isSpinning = true;
-        spinSlot();
+// スロットの全体の状態を表す変数
+var nowStatus = false;
+
+// ページの読み込みが完了したら実行される関数
+window.addEventListener("load", function () {
+  // 各スロットのHTML要素を取得し、オブジェクトに格納
+  for (let i = 0; i < carr.length; i++) {
+    carr[i].obj = document.getElementById("c" + (i + 1));
+  }
+
+  // 20ミリ秒ごとに繰り返し実行される関数を登録
+  setInterval(interval, 20);
+});
+
+// スロットの値を更新する関数
+function interval() {
+  // ゲームが進行中であれば
+  if (nowStatus) {
+    // 各スロットの状態を確認して更新
+    for (let i = 0; i < carr.length; i++) {
+      // スロットが有効な場合
+      if (carr[i].f) {
+        // 1を足して10で割った余りを新しい値として設定
+        carr[i].v = (carr[i].v + 1) % 10;
+        // HTMLに新しい値を表示
+        carr[i].obj.innerHTML = carr[i].v;
+      }
     }
+  }
 }
 
-// スロットを回す処理
-function spinSlot() {
-    numbers = numbers.map(() => Math.floor(Math.random() * 10));
-    updateDisplay();
+// ゲームを開始する関数
+function start() {
+  // ゲームが既に進行中であれば何もせず終了
+  if (nowStatus) {
+    return;
+  }
 
-    // 一定時間ごとに数字を変更（ここでは500ミリ秒）
-    setTimeout(() => {
-        if (isSpinning) {
-            spinSlot();
-        }
-    }, 500);
+  // ゲームを開始状態に設定
+  nowStatus = true;
+
+  // 各スロットを有効に設定
+  for (let i = 0; i < carr.length; i++) {
+    carr[i].f = true;
+  }
 }
 
-// ストップボタンが押されたときの処理
-function stopSlot(slotIndex) {
-    if (isSpinning) {
-        isSpinning = false;
-        numbers[slotIndex - 1] = Math.floor(Math.random() * 10);
-        updateDisplay();
+// 特定のスロットを停止する関数
+function stop(c) {
+  // ゲームが進行中であれば
+  if (nowStatus) {
+    // 対象のスロットを停止状態に変更
+    carr[c].f = false;
 
-        // 3つのスロットが全て止まった後に結果をチェック
-        if (!isSpinning) {
-            checkResult();
-        }
-    }
-}
+    // すべてのスロットが停止しているかどうかを確認
+    if (!carr[0].f && !carr[1].f && !carr[2].f) {
+      // ゲームを終了状態に設定
+      nowStatus = false;
 
-// 画面に数字を表示
-function updateDisplay() {
-    for (let i = 1; i <= 3; i++) {
-        document.getElementById(`number${i}`).innerText = numbers[i - 1];
+      // スロットの値が一致しているか判定し、結果を表示
+      if (carr[0].v == carr[1].v && carr[1].v == carr[2].v) {
+        document.getElementById("char").innerHTML = "あたり";
+      } else {
+        document.getElementById("char").innerHTML = "はずれ";
+      }
     }
-}
-
-// 結果をチェックしてポップアップ表示
-function checkResult() {
-    if (numbers[0] === numbers[1] && numbers[1] === numbers[2]) {
-        alert("あたり！");
-    } else {
-        alert("はずれ！");
-    }
+  }
 }
