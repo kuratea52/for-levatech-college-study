@@ -1,5 +1,6 @@
 const btn = document.getElementById("btn");
 
+// 変数 btn にクリックイベントを追加
 btn.addEventListener("click", function() {
     // 3つの運勢を配列に格納
     const fortunes = ["大吉", "中吉", "小吉"];
