@@ -1,19 +1,29 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!--モバイルで表示させる用-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--css読み込み-->
-    <link rel="stylesheet" href="Practice01_3.css">
-    <title>Fortune Telling</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Slot Machine</title>
 </head>
 <body>
 
-    <button id="btn">占う！</button>
-    <p id="txt"></p>
+<div class="slot-machine">
+    <div class="slot">
+        <div class="number" id="number1">0</div>
+        <button class="stop-btn" onclick="stopSlot(1)">Stop</button>
+    </div>
+    <div class="slot">
+        <div class="number" id="number2">0</div>
+        <button class="stop-btn" onclick="stopSlot(2)">Stop</button>
+    </div>
+    <div class="slot">
+        <div class="number" id="number3">0</div>
+        <button class="stop-btn" onclick="stopSlot(3)">Stop</button>
+    </div>
+    <button class="start-btn" onclick="startSlot()">Start</button>
+</div>
 
-    <!--js読み込み-->
-    <script src="Practice01_3.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
