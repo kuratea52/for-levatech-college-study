@@ -29,7 +29,11 @@ function stopSlot(slotIndex) {
         isSpinning = false;
         numbers[slotIndex - 1] = Math.floor(Math.random() * 10);
         updateDisplay();
-        checkResult();
+
+        // 3つのスロットが全て止まった後に結果をチェック
+        if (!isSpinning) {
+            checkResult();
+        }
     }
 }
 
