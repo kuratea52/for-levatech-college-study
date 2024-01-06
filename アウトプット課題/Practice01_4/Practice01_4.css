@@ -7,3 +7,11 @@
     width: 100%;
     text-align: center;
 }
+
+div {
+    text-align: center;
+    margin-top: 10px; /* 任意のマージンを追加 */
+    color: black; /* テキストの色が変わっていないか確認 */
+    font-size: 16px; /* テキストのフォントサイズを設定 */
+    /* 他に非表示にするスタイルがあれば削除 */
+}
