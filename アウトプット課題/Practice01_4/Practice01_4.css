@@ -8,6 +8,11 @@
     text-align: center;
 }
 
+#char {
+    font-size: 20px;
+    
+}
+
 div {
     text-align: center;
     margin-top: 10px; /* 任意のマージンを追加 */
