@@ -1,5 +1,7 @@
 // スロットの状態を管理するオブジェクトの配列
-var carr = [{ f: false, v: 0, obj: null }, { f: false, v: 0, obj: null }, { f: false, v: 0, obj: null }];
+var carr = [{ f: false, v: 0, obj: null },
+            { f: false, v: 0, obj: null },
+            { f: false, v: 0, obj: null }];
 
 // スロットの全体の状態を表す変数
 var nowStatus = false;
