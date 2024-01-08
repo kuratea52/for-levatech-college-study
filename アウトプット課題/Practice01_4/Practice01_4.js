@@ -7,7 +7,7 @@ var carr = [{ f: false, v: 0, obj: null },
 var nowStatus = false;
 
 // ページの読み込みが完了したら実行される関数
-window.addEventListener("load", function () {
+window.addEventListener("load", function() {
   // 各スロットのHTML要素を取得し、オブジェクトに格納
   for (let i = 0; i < carr.length; i++) {
     carr[i].obj = document.getElementById("c" + (i + 1));
