@@ -1,7 +1,7 @@
 Local time: Tue 2024-01-09 13:06:26 JST  
 Universal time: Tue 2024-01-09 04:06:26 UTC  
 RTC time: Tue 2024-01-09 04:06:27  
-Time zone: Asia/Tokyo (JST, +0900)   //タイムゾーンの設定
+Time zone: Asia/Tokyo (JST, +0900)   // タイムゾーンの設定
 NTP enabled: yes  
 NTP synchronized: yes  
 RTC in local TZ: no  
