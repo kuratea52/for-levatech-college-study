@@ -1,4 +1,4 @@
-// 
+// dockerアンインストール前のハードディスク使用状況
 Filesystem      Size  Used Avail Use% Mounted on
 devtmpfs        468M     0  468M   0% /dev
 tmpfs           477M     0  477M   0% /dev/shm
