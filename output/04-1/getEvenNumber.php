@@ -1,4 +1,5 @@
 <?php
+    // $argv変数 → コマンドライン引数（入力された値）を受け取る
     $input_num = $argv[1];
 
     if ($input_num % 2 === 0) {
