@@ -1,6 +1,5 @@
 // Composerのインストーラーをインターネットから取得＆インストーラー実行
 $ curl -sS https://getcomposer.org/installer | php
-
 All settings correct for using Composer
 Downloading...
 
@@ -12,7 +11,6 @@ $ sudo mv composer.phar /usr/local/bin/composer
 
 // composerコマンドとして認識されているかの確認
 $ composer
-
    ______
   / ____/___  ____ ___  ____  ____  ________  _____
  / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/

@@ -1,4 +1,5 @@
 // dockerアンインストール前のハードディスク使用状況
+$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
 devtmpfs        468M     0  468M   0% /dev
 tmpfs           477M     0  477M   0% /dev/shm
@@ -9,14 +10,23 @@ tmpfs            96M     0   96M   0% /run/user/1000
 tmpfs            96M     0   96M   0% /run/user/0
 
 // dockerがインストールされていることを確認
+$ yum list installed | grep docker
 containerd.x86_64             1.7.2-1.amzn2.0.1          @amzn2extra-docker     
 docker.x86_64                 20.10.25-1.amzn2.0.3       @amzn2extra-docker     
 runc.x86_64                   1.1.7-4.amzn2              @amzn2extra-docker 
 
 // docker用ディレクトリの使用容量
+$ sudo du -shc /var/lib/*
 132K    /var/lib/docker
 
+// dockerのアンインストール実行
+$ sudo yum remove docker
+
+// 不要になったdocker用ディレクトリの削除
+$ sudo rm -fr /var/lib/docker
+
 // dockerアンインストール後のハードディスク使用状況
+$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
 devtmpfs        468M     0  468M   0% /dev
 tmpfs           477M     0  477M   0% /dev/shm

@@ -2,7 +2,6 @@
 // composer.jsonファイルに追記している
 // 「global」オプションで、パッケージがシステム全体で使えるようになる
 $ composer global require laravel/installer
-
 Changed current directory to /home/ec2-user/.config/composer
 ./composer.json has been created
 Running composer update laravel/installer
