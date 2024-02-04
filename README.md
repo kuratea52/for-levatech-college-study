@@ -270,3 +270,8 @@
     4. データの保存
 
 ## 23. Laravel9応用：認証機能 Breeze
+### 1. Breeze認証機能の実装
+1. Laravel/Breezeのインストール
+2. コンパイル
+3. URLのhttps化
+4. 動作確認
